@@ -25,7 +25,7 @@ export default function Auth() {
         ? await supabase.auth.signUp({
             email,
             password,
-            options: { data: { display_name: name }, emailRedirectTo: window.location.origin },
+            options: { data: { display_name: name }, emailRedirectTo: window.location.origin + window.location.pathname },
           })
         : await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
