@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/Auth.tsx","./src/BillCard.tsx","./src/Lists.tsx","./src/PostBill.tsx","./src/Swipe.tsx","./src/main.tsx","./src/supabase.ts"],"version":"5.9.3"}

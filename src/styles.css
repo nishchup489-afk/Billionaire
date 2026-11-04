@@ -1,0 +1,87 @@
+:root {
+  --bg: #0d0d10; --panel: #17171c; --line: #2a2a33; --text: #f2f2f5; --muted: #9a9aa8;
+  --gold: #f5c542; --green: #2ecc71; --red: #ff5a5f; --radius: 18px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button, .button { cursor: pointer; border: 1px solid var(--line); background: var(--panel); padding: 10px 16px; border-radius: 12px; text-decoration: none; display: inline-block; }
+button:disabled { opacity: .5; cursor: default; }
+.primary { background: var(--gold); color: #111; border-color: var(--gold); font-weight: 700; }
+.link { background: none; border: none; color: var(--muted); padding: 6px; text-decoration: underline; }
+input, select, textarea { width: 100%; background: #0f0f13; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-top: 6px; }
+label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+label small { color: #6c6c78; }
+.check { display: flex; align-items: center; gap: 8px; color: var(--text); }
+.check input { width: auto; margin: 0; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+.msg { color: var(--gold); font-size: 14px; }
+.warn { font-size: 13px; color: #ffb37a; background: #2a1d12; padding: 10px 12px; border-radius: 10px; }
+.fine { font-size: 12px; color: #6c6c78; text-align: center; }
+.logo { width: 64px; height: 64px; border-radius: 16px; background: #000; color: var(--gold); display: grid; place-items: center; font-size: 36px; font-weight: 800; margin: 0 auto 10px; border: 1px solid var(--line); }
+.logo.sm { width: 28px; height: 28px; font-size: 16px; border-radius: 8px; margin: 0; display: inline-grid; }
+
+/* landing */
+.landing { max-width: 960px; margin: 0 auto; padding: 40px 16px; display: grid; gap: 28px; grid-template-columns: 1.2fr 1fr; align-items: center; }
+.landing .fine { grid-column: 1 / -1; }
+.hero { text-align: center; }
+.hero h1 { font-size: clamp(32px, 6vw, 52px); margin: 0; letter-spacing: -1px; }
+.tagline { color: var(--muted); font-size: 18px; }
+.stats { display: flex; justify-content: center; gap: 12px; margin: 20px 0; }
+.stats div { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 10px 16px; min-width: 90px; }
+.stats b { display: block; font-size: 20px; color: var(--gold); }
+.stats span { font-size: 12px; color: var(--muted); }
+.how { text-align: left; color: var(--muted); line-height: 1.7; max-width: 420px; margin: 0 auto; }
+.how b { color: var(--text); }
+.seg { display: flex; gap: 6px; margin-bottom: 18px; }
+.seg button { flex: 1; }
+.seg .on, nav .on { background: var(--text); color: #111; border-color: var(--text); }
+.auth .primary { width: 100%; }
+@media (max-width: 760px) { .landing { grid-template-columns: 1fr; padding-top: 24px; } }
+
+/* app shell */
+.app { max-width: 520px; margin: 0 auto; padding: 12px 16px 40px; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 6px 0 12px; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 800; }
+nav { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 12px; }
+nav button { white-space: nowrap; padding: 8px 12px; font-size: 14px; }
+
+/* bill card */
+.bill { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; user-select: none; }
+.bill-img { position: relative; height: 260px; background: #0a0a0d; }
+.bill-img img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.placeholder { height: 100%; display: grid; place-items: center; font-size: 90px; }
+.amount { position: absolute; left: 14px; bottom: 14px; background: rgba(0,0,0,.75); color: var(--gold); font-weight: 800; font-size: 26px; padding: 6px 14px; border-radius: 12px; }
+.bill-body { padding: 16px 18px 18px; }
+.bill-body h3 { margin: 0; font-size: 19px; }
+.row { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+.cat { color: var(--muted); font-size: 13px; margin: 4px 0 8px; text-transform: capitalize; }
+.story { margin: 0; line-height: 1.5; color: #d6d6de; white-space: pre-wrap; }
+.tag { font-size: 11px; text-transform: uppercase; padding: 3px 8px; border-radius: 99px; background: #2a2a33; letter-spacing: .5px; }
+.tag.open { background: #1d2d44; color: #8cc4ff; }
+.tag.pledged { background: #3a2f10; color: var(--gold); }
+.tag.paid { background: #123322; color: var(--green); }
+.note { color: var(--muted); font-size: 14px; }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+/* swipe */
+.stack { position: relative; height: 520px; }
+.slot { position: absolute; inset: 0; touch-action: none; }
+.slot.behind { transform: scale(.95) translateY(14px); opacity: .6; }
+.slot.top { cursor: grab; z-index: 2; }
+.slot .bill { height: 100%; }
+.stamp { position: absolute; top: 24px; z-index: 3; font-size: 34px; font-weight: 900; padding: 4px 14px; border: 4px solid; border-radius: 10px; pointer-events: none; }
+.stamp.pay { left: 22px; color: var(--green); transform: rotate(-14deg); }
+.stamp.pass { right: 22px; color: var(--red); transform: rotate(14deg); }
+.actions { display: flex; justify-content: center; align-items: center; gap: 28px; margin-top: 18px; }
+.round { width: 64px; height: 64px; border-radius: 50%; font-size: 26px; font-weight: 800; padding: 0; }
+.round.pass { color: var(--red); border-color: var(--red); }
+.round.pay { color: #111; background: var(--green); border-color: var(--green); }
+.hint { text-align: center; color: #6c6c78; font-size: 12px; }
+.empty { text-align: center; color: var(--muted); padding-top: 120px; }
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--text); color: #111; padding: 12px 18px; border-radius: 12px; font-weight: 600; max-width: calc(100% - 32px); z-index: 10; }
+.list { display: grid; gap: 16px; }
+.form h2 { margin-top: 0; }
+.form .primary { width: 100%; }
+.two { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
